@@ -1,16 +1,21 @@
+import "../App.css"
+
+
 const Socialicons = () => {
   return (
-    <div className="fixed bottom-0 left-0 flex flex-row text-white font-NavBar">
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-        linkedin .
+    <div className="fixed socialIconsStyling bottom-7 left-10 flex flex-row text-white font-Navbar">
+      <a href="https://github.com/RajaImayaBharathi" target="_blank" rel="noopener noreferrer">
+        LinkedIn&ensp;.&ensp;
       </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-        GitHub .
+      <a href="https://www.linkedin.com/in/raja-imaya-bharathi" target="_blank" rel="noopener noreferrer">
+        GitHub&ensp;.&ensp;
       </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-        LeetCode
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        LeetCode&ensp;.&ensp;
       </a>
-      
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        Medium&ensp;.&ensp;
+      </a>
     </div>
   )
 }
