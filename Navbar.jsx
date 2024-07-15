@@ -21,7 +21,7 @@ const NavBar = () => {
           <div className="flex items-center">
             <p className="text-sm">{`{/*`}&ensp;&ensp;</p>
             {/* <div className="flex space-x-8 items-center">
-              <a href="#about" className="hover:border-b-2 border-highlightOne hover:transition ease-in-out rounded-sm">
+              <a href="#about"  className="hover:border-b-2 border-highlightOne hover:transition ease-in-out rounded-sm">
                 <span className="text-highlightOne">01</span>.About Me
               </a>
               <a href="#experience" className="hover:border-b-2 border-highlightOne hover:transition ease-in-out rounded-sm">
