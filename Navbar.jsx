@@ -3,7 +3,7 @@ import "../App.css";
 
 const NavBar = () => {
   const navItems = [
-    { href: "#about", label: "About" },
+    { href: "#about", label: "About me" },
     { href: "#experience", label: "Experience" },
     { href: "#achievements", label: "Achievements & Skills" },
     { href: "#projects", label: "My Projects" },
