@@ -1,157 +1,147 @@
-import { useState } from "react";
 import React from "react";
 import { FaCalendar } from "react-icons/fa";
 import { CiBank } from "react-icons/ci";
 import { LuWallet } from "react-icons/lu";
+import Link from "next/link";
 
-const PaymentPage = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleOptionChange = (option) => {
-    setSelectedOption(option);
-  };
-
+const PaymentAppointment = () => {
   return (
-    <React.Fragment>
-      <div className="flex flex-col m-10 ">
-        <div className="text-sm flex flex-row py-3 rounded-lg bg-LiteLavender2 space-x-28 justify-center items-center">
-          <div className="flex items-center">
-            <img
-              src="src/assets/doc.jpeg"
-              alt=""
-              className="docImg mr-3 rounded-lg"
-            />
-            <div>
-              <p className="font-semibold">Dr.Lisa Chen MD</p>
-              <p>Surgery Specialist</p>
+    <>
+      <div className="headerStyle py-7 pl-10 rounded-t-lg bg-purple-600 ">
+        <p className="font-semibold text-white">Select Plan</p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <div className="min-w-[400px] lg:min-w-[800px] mx-auto flex flex-col items-center">
+          <div className="flex py-2 justify-between w-full space-x-4 px-10 my-5 rounded-md bg-purple-200">
+            <div className="flex items-center">
+              <img
+                src="/images/DoctorConsultingPage3.png"
+                alt=""
+                className="w-16 h-16"
+              />
+              <div className="ml-3">
+                <p className="text-sm font-bold">Dr. Lisha Chan MD</p>
+                <p className="text-sm font-normal">Surgery Specialist</p>
+              </div>
             </div>
-          </div>
-          <div className="verticalLine"></div>
-          <div className="text-center">
-            <p className="text-Lavender ml-11">
-              <FaCalendar />
-            </p>
-            <p>8th April 2024</p>
-            <p className="text-Lavender">9:00am-12:00pm</p>
-          </div>
-          <div className="verticalLine"></div>
-          <div>
-            <p className="text-Lavender">6 Months-Plan</p>
+            <div className="border-l-2 border-gray-400 h-16"></div>{" "}
+            {/* Vertical line */}
+            <div className="flex flex-col items-center">
+              <p className="text-purple-500">
+                <FaCalendar />
+              </p>
+              <p>8th April 2024</p>
+              <p className="text-purple-500">9:00am-12:00pm</p>
+            </div>
+            <div className="border-l-2 border-gray-400 h-16"></div>{" "}
+            <div className="flex items-center">
+              <p className="text-sm font-normal">Surgery Specialist</p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 flex space-x-16">
-          <div>
-            <div>
-              <p>Coupon Code</p>
-              <div>
+        <div className="mt-4 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-16">
+          {/* Left Column: Coupon Code and Payment Options */}
+          <div className="flex flex-col w-full md:w-auto">
+            <div className="mb-4">
+              <p className="font-semibold">Coupon Code</p>
+              <div className="flex mt-2">
                 <input
                   type="text"
-                  className="input border-Gray focus:outline-none border mt-2 pl-4"
+                  className="border-gray-300 focus:outline-none border mt-2 pl-4 w-full md:w-auto"
                   placeholder="Have a coupon code?"
                 />
-                <button className="btn bg-Lavender py-2 px-6 ml-4 rounded-md text-sm">
+                <button className="bg-purple-600 py-2 px-6 ml-4 rounded-md text-sm text-white">
                   Apply
                 </button>
               </div>
             </div>
 
-            <div className="mt-3 Selectpayment">
-              <p className="mb-3">Select Payment</p>
-
-              <div className="space-y-4">
+            <div className="my-5">
+              <p className="font-semibold mb-3">Select Payment</p>
+              <div className="space-y-4 ">
+                {/* UPI Payment Option */}
                 <div
-                  className={`flex items-center p-1 border border-Gray rounded-md cursor-pointer ${
-                    selectedOption === "upi"
-                      ? "border-purple-500"
-                      : "border-gray-300"
-                  }`}
-                  onClick={() => handleOptionChange("upi")}
+                  className={`flex items-center p-1 border border-gray-300 rounded-md cursor-pointer `}
                 >
-                  <img src="src/assets/phonepay.png" alt="" className="w-8 h-6 mr-3" />
+                  <img
+                    src="/images/phonepay.png"
+                    alt=""
+                    className="w-8 h-6 mr-3"
+                  />
                   <span className="text-sm">UPI</span>
                   <input
                     type="radio"
                     name="payment"
-                    checked={selectedOption === "upi"}
-                    className="radio ml-auto"
+                    className="ml-auto w-8 h-6"
                     readOnly
                   />
                 </div>
 
+                {/* Credit/Debit Card Payment Option */}
                 <div
-                  className={`flex items-center p-1 border border-Gray rounded-md cursor-pointer ${
-                    selectedOption === "card"
-                      ? "border-purple-500"
-                      : "border-gray-300"
-                  }`}
-                  onClick={() => handleOptionChange("card")}
+                  className={`flex items-center p-1 border border-gray-300 rounded-md cursor-pointer `}
                 >
-                  <img src="src/assets/debit.png" alt="" className="w-9 h-6 mr-3" />
+                  <img
+                    src="/images/debit.png"
+                    alt=""
+                    className="w-9 h-6 mr-3"
+                  />
                   <span className="text-sm">Credit/Debit Card</span>
                   <input
                     type="radio"
                     name="payment"
-                    checked={selectedOption === "card"}
-                    className="radio ml-auto"
+                    className="ml-auto w-8 h-6"
                     readOnly
                   />
                 </div>
 
+                {/* Net Banking Payment Option */}
                 <div
-                  className={`flex items-center p-1 border border-Gray rounded-md cursor-pointer ${
-                    selectedOption === "netBanking"
-                      ? "border-purple-500"
-                      : "border-gray-300"
-                  }`}
-                  onClick={() => handleOptionChange("netBanking")}
+                  className={`flex items-center p-1 border border-gray-300 rounded-md cursor-pointer`}
                 >
                   <CiBank className="w-6 h-6 mr-3" />
                   <span className="text-sm">Net Banking</span>
                   <input
                     type="radio"
                     name="payment"
-                    checked={selectedOption === "netBanking"}
-                    className="radio ml-auto"
+                    className="ml-auto w-8 h-6"
                     readOnly
                   />
                 </div>
 
+                {/* Wallet Payment Option */}
                 <div
-                  className={`flex items-center p-1 border border-Gray rounded-md cursor-pointer ${
-                    selectedOption === "wallet"
-                      ? "border-purple-500"
-                      : "border-gray-300"
-                  }`}
-                  onClick={() => handleOptionChange("wallet")}
+                  className={`flex items-center p-1 border border-gray-300 rounded-md cursor-pointer `}
                 >
                   <LuWallet className="w-6 h-6 mr-3" />
                   <span className="text-sm">Wallet</span>
                   <input
                     type="radio"
                     name="payment"
-                    checked={selectedOption === "wallet"}
-                    className="radio ml-auto"
+                    className="ml-auto w-8 h-6 "
                     readOnly
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className="VeriticalLine2"></div>
-          <div>
-            <div className="TotalAmount flex space-x-36 py-3 px-10 bg-DarkLavender rounded-md btn mt-20">
-                <div>Total Amount</div>
-                <div className="goldLite">Rs. 999</div>
+
+          {/* Right Column: Total Amount and Make Payment Button */}
+          <div className="flex flex-col justify-center items-center text-white">
+            <div className="flex items-center w-full md:min-w-[400px] py-3 px-10 bg-purple-800 rounded-md mt-4 md:mt-0">
+              <div className="flex-1">Total Amount</div>
+              <div className="text-yellow-400 ml-auto">Rs. 999</div>
             </div>
-            <button className="TotalAmount flex space-x-36 py-3 px-10 bg-Lavender rounded-md btn mt-10 justify-center">
-                <div>Make Payments</div>
-            </button>
+            <Link href="/Consult/ConfirmationPage" className="flex justify-center w-full md:min-w-[400px] py-3 px-6 md:px-10 bg-purple-600 rounded-md btn mt-4">
+              Make Payment
+            </Link>
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
-export default PaymentPage;
+export default PaymentAppointment;
