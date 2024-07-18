@@ -134,7 +134,10 @@ const PaymentAppointment = () => {
               <div className="flex-1">Total Amount</div>
               <div className="text-yellow-400 ml-auto">Rs. 999</div>
             </div>
-            <Link href="/Consult/ConfirmationPage" className="flex justify-center w-full md:min-w-[400px] py-3 px-6 md:px-10 bg-purple-600 rounded-md btn mt-4">
+            <Link
+              href="/Consult/ConfirmationPage"
+              className="flex justify-center w-full md:min-w-[400px] py-3 px-6 md:px-10 bg-purple-600 rounded-md btn mt-4"
+            >
               Make Payment
             </Link>
           </div>
